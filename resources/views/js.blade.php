@@ -55,6 +55,7 @@
                 success: function(data) {
                     if (data.errors) return alert(data.errors[0]);
                     alert(data.success);
+                    window.location.href = "http://127.0.0.1:8000/dashboard";
                     // window.location.reload();
                 }
             });
