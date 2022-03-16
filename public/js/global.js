@@ -40,6 +40,6 @@ toastr.options = {
 
 Echo.channel(`channel-user`)
     .listen('ResetList', (e) => {
-        toastr["info"]("Name: <b>" + e.name + "</b> <br> Email: <b>" + e.email + "</b>", "New user" );
+        toastr["info"]("Name: <b>" + e.name + "</b> <br> Email: <b>" + e.email + "</b>",  e.process +  " user" );
         $("#user_table").DataTable().ajax.reload();
 });

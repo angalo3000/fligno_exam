@@ -93,6 +93,7 @@ class UserController extends Controller
             $text = "Record Added";
 
             $details = [
+                'process' => 'New',
                 'name' => $request->name,
                 'email' => $request->email
             ];
@@ -196,6 +197,18 @@ class UserController extends Controller
     public function destroy($id)
     {
         $user = User::find($id);
+        $details = [
+            'process' => 'Delete',
+            'name' => $user->name,
+            'email' => $user->email
+        ];
+        Mail::send('email.sendMail', $details, function($message) use ($details) {
+           $message->to($details['email'], $details['name'])->subject('Registration successfully');
+           $message->from('test@gmail.com','Angelo Cenidoza');
+        });
+        
+        broadcast(new ResetList($details))->toOthers();
+
         $user->delete();
 
         return response()->json('Record deleted', 200);

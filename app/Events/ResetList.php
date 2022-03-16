@@ -14,6 +14,7 @@ class ResetList implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
+    public $process;
     public $name;
     public $email;
 
@@ -24,6 +25,7 @@ class ResetList implements ShouldBroadcast
      */
     public function __construct($user)
     {
+        $this->process = $user['process'];
         $this->name = $user['name'];
         $this->email = $user['email'];
     }
