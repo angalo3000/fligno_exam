@@ -8,7 +8,7 @@
     @push('js')
       @include('js')
     @endpush
-    {{-- <div class="card m-3">
+    <div class="card m-3">
         <div class="card-header">
             <h3 class="card-title">Location</h3>
 
@@ -33,7 +33,7 @@
             Footer
         </div>
         <!-- /.card-footer-->
-    </div> --}}
+    </div>
     
     <div class="card m-3">
         <div class="card-header">
